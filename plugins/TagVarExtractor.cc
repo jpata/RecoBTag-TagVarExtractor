@@ -17,6 +17,7 @@
 //
 //
 
+#define NORMALIZE(x) if(x<-1000 || x!=x) {x = -10;};
 
 // system include files
 #include <memory>
@@ -128,7 +129,7 @@ TagVarExtractor::TagVarExtractor(const edm::ParameterSet& iConfig) :
 
    // create output tree
    TagVarTree = fs->make<TTree>("ttree", "ttree");
-
+   TagVarInfo.doTagVarsCSV = iConfig.getParameter<bool>("doTagVarsCSV");
    // register output branches
    TagVarInfo.RegisterTree(TagVarTree);
 }
@@ -199,6 +200,16 @@ TagVarExtractor::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       TagVarInfo.Jet_JBP       = JetInfo.Jet_Bprob[iJet];
       TagVarInfo.Jet_CSV       = JetInfo.Jet_CombSvx[iJet];
       TagVarInfo.Jet_CSVIVF    = JetInfo.Jet_CombIVF[iJet];
+      TagVarInfo.Jet_CombMVA   = JetInfo.Jet_CombMVANEW[iJet];
+      TagVarInfo.Jet_SoftEl    = JetInfo.Jet_SoftEl[iJet];
+      TagVarInfo.Jet_SoftMu    = JetInfo.Jet_SoftMu[iJet];
+      TagVarInfo.Jet_Weight    = 1.0;
+  
+      NORMALIZE(TagVarInfo.Jet_CSV);
+      NORMALIZE(TagVarInfo.Jet_CSVIVF);
+      NORMALIZE(TagVarInfo.Jet_CombMVA);
+      NORMALIZE(TagVarInfo.Jet_SoftEl);
+      NORMALIZE(TagVarInfo.Jet_SoftMu);
 
       TagVarInfo.TagVarCSV_jetNTracks              = JetInfo.TagVarCSV_jetNTracks[iJet];
       TagVarInfo.TagVarCSV_jetNTracksEtaRel        = JetInfo.TagVarCSV_jetNTracksEtaRel[iJet];

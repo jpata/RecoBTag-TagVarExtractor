@@ -19,6 +19,11 @@ options.register('wantSummary', False,
     VarParsing.varType.bool,
     "Print out trigger and timing summary"
 )
+options.register('doTagVarsCSV', True,
+    VarParsing.multiplicity.singleton,
+    VarParsing.varType.bool,
+    "Save tagging input variables"
+)
 options.register('useExternalInput', False,
     VarParsing.multiplicity.singleton,
     VarParsing.varType.bool,
@@ -109,7 +114,8 @@ process.tagVars = cms.EDAnalyzer('TagVarExtractor',
     JetPtMin     = cms.double(options.jetPtMin),
     JetPtMax     = cms.double(options.jetPtMax),
     JetAbsEtaMin = cms.double(options.jetAbsEtaMin),
-    JetAbsEtaMax = cms.double(options.jetAbsEtaMax)
+    JetAbsEtaMax = cms.double(options.jetAbsEtaMax),
+    doTagVarsCSV = cms.bool(options.doTagVarsCSV)
 )
 
 process.p = cms.Path(process.tagVars)
