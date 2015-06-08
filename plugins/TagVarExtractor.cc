@@ -229,6 +229,25 @@ TagVarExtractor::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       TagVarInfo.TagVarCSV_flightDistance2dSig     = (JetInfo.TagVarCSV_flightDistance2dSig[iJet] < -1000. ? -1. : JetInfo.TagVarCSV_flightDistance2dSig[iJet]);
       TagVarInfo.TagVarCSV_flightDistance3dVal     = (JetInfo.TagVarCSV_flightDistance3dVal[iJet] < -1000. ? -1. : JetInfo.TagVarCSV_flightDistance3dVal[iJet]);
       TagVarInfo.TagVarCSV_flightDistance3dSig     = (JetInfo.TagVarCSV_flightDistance3dSig[iJet] < -1000. ? -1. : JetInfo.TagVarCSV_flightDistance3dSig[iJet]);
+      
+      NORMALIZE(TagVarInfo.TagVarCSV_jetNTracks);
+      NORMALIZE(TagVarInfo.TagVarCSV_jetNTracksEtaRel);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSumJetEtRatio);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSumJetDeltaR);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dValAboveCharm);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dSigAboveCharm);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dValAboveCharm);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dSigAboveCharm);
+      NORMALIZE(TagVarInfo.TagVarCSV_vertexCategory);
+      NORMALIZE(TagVarInfo.TagVarCSV_jetNSecondaryVertices);
+      NORMALIZE(TagVarInfo.TagVarCSV_vertexMass);
+      NORMALIZE(TagVarInfo.TagVarCSV_vertexNTracks);
+      NORMALIZE(TagVarInfo.TagVarCSV_vertexEnergyRatio);
+      NORMALIZE(TagVarInfo.TagVarCSV_vertexJetDeltaR);
+      NORMALIZE(TagVarInfo.TagVarCSV_flightDistance2dVal);
+      NORMALIZE(TagVarInfo.TagVarCSV_flightDistance2dSig);
+      NORMALIZE(TagVarInfo.TagVarCSV_flightDistance3dVal);
+      NORMALIZE(TagVarInfo.TagVarCSV_flightDistance3dSig);
 
       // loop over tracks to get IPs
       std::vector<float> IP2Ds;
@@ -350,6 +369,21 @@ TagVarExtractor::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
           TagVarInfo.TagVarCSV_trackPtRel_3 = PtRel.at(3);
 
       } // end switch on number of tracks for IP
+          
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dSig_0);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dSig_1);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dSig_2);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip2dSig_3);
+
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dSig_0);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dSig_1);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dSig_2);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackSip3dSig_3);
+
+      NORMALIZE(TagVarInfo.TagVarCSV_trackPtRel_0);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackPtRel_1);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackPtRel_2);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackPtRel_3);
 
       // switch on the number of etarel tracks in order to fill branches with a dummy if needed
       switch(numEtaRelTracks){
@@ -382,6 +416,9 @@ TagVarExtractor::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
           TagVarInfo.TagVarCSV_trackEtaRel_2 = etaRels.at(2);
 
       } //end switch on number of etarel tracks
+      NORMALIZE(TagVarInfo.TagVarCSV_trackEtaRel_0);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackEtaRel_1);
+      NORMALIZE(TagVarInfo.TagVarCSV_trackEtaRel_2);
 
       TagVarTree->Fill();
     }
