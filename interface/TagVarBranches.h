@@ -19,6 +19,8 @@ class TagVarBranches {
     float Jet_CSV;
     float Jet_CSVIVF;
     float Jet_CombMVA;
+    float Jet_CombMVANEW;
+    float Jet_CombMVAETH;
     float Jet_SoftEl;
     float Jet_SoftMu;
     float Jet_Weight;
@@ -78,6 +80,8 @@ class TagVarBranches {
       tree->Branch((name+"Jet_CSV").c_str()         ,&Jet_CSV         ,(name+"Jet_CSV/F").c_str()       );
       tree->Branch((name+"Jet_CSVIVF").c_str()      ,&Jet_CSVIVF      ,(name+"Jet_CSVIVF/F").c_str()    );
       tree->Branch((name+"Jet_CombMVA").c_str()     ,&Jet_CombMVA     ,(name+"Jet_CombMVA/F").c_str()   );
+      tree->Branch((name+"Jet_CombMVANEW").c_str()     ,&Jet_CombMVANEW     ,(name+"Jet_CombMVANEW/F").c_str()   );
+      tree->Branch((name+"Jet_CombMVAETH").c_str()     ,&Jet_CombMVAETH     ,(name+"Jet_CombMVAETH/F").c_str()   );
       tree->Branch((name+"Jet_SoftMu").c_str()      ,&Jet_SoftMu      ,(name+"Jet_SoftMu/F").c_str()    );
       tree->Branch((name+"Jet_SoftEl").c_str()      ,&Jet_SoftEl      ,(name+"Jet_SoftEl/F").c_str()    );
       tree->Branch((name+"Jet_Weight").c_str()      ,&Jet_Weight      ,(name+"Jet_Weight/F").c_str()    );
@@ -138,6 +142,8 @@ class TagVarBranches {
       tree->SetBranchAddress((name+"Jet_CSV").c_str()         ,&Jet_CSV       );
       tree->SetBranchAddress((name+"Jet_CSVIVF").c_str()      ,&Jet_CSVIVF    );
       tree->SetBranchAddress((name+"Jet_CombMVA").c_str()     ,&Jet_CombMVA   );
+      tree->SetBranchAddress((name+"Jet_CombMVANEW").c_str()     ,&Jet_CombMVANEW   );
+      tree->SetBranchAddress((name+"Jet_CombMVAETH").c_str()     ,&Jet_CombMVAETH   );
       tree->SetBranchAddress((name+"Jet_SoftEl").c_str()      ,&Jet_SoftEl    );
       tree->SetBranchAddress((name+"Jet_SoftMu").c_str()      ,&Jet_SoftMu    );
       tree->SetBranchAddress((name+"Jet_Weight").c_str()      ,&Jet_Weight    );
