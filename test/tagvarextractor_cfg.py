@@ -89,7 +89,7 @@ process.source = cms.Source("EmptySource")
 process.options = cms.untracked.PSet( wantSummary = cms.untracked.bool(options.wantSummary) )
 
 ## Input files
-#inputFiles = ['JetTree_mc.root']
+inputFiles = ['/mnt/t3nfs01/data01/shome/jpata/btv/CMSSW_8_1_0_pre8/src/RecoBTag/PerformanceMeasurements/test/JetTree_mc.root']
 ## If using external input files
 if options.useExternalInput:
     inputFiles = open(options.externalInput,"r").read().splitlines()
