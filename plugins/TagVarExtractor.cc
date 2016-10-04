@@ -211,8 +211,10 @@ TagVarExtractor::analyze(const edm::Event& iEvent, const edm::EventSetup& iSetup
       TagVarInfo.Jet_JP        = JetInfo.Jet_Proba[iJet];
       TagVarInfo.Jet_JBP       = JetInfo.Jet_Bprob[iJet];
       TagVarInfo.Jet_CSV       = JetInfo.Jet_CombSvx[iJet];
-      TagVarInfo.Jet_cMVA      = JetInfo.Jet_cMVAv2[iJet];
       TagVarInfo.Jet_CSVIVF    = JetInfo.Jet_CombIVF[iJet];
+      TagVarInfo.Jet_cMVA      = JetInfo.Jet_cMVAv2[iJet];
+      TagVarInfo.Jet_SoftMu    = JetInfo.Jet_SoftMu[iJet];
+      TagVarInfo.Jet_SoftEl    = JetInfo.Jet_SoftEl[iJet];
 
       TagVarInfo.TagVarCSV_jetNTracks              = JetInfo.TagVarCSV_jetNTracks[iJet];
       TagVarInfo.TagVarCSV_jetNTracksEtaRel        = JetInfo.TagVarCSV_jetNTracksEtaRel[iJet];

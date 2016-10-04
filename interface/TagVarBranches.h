@@ -18,8 +18,10 @@ class TagVarBranches {
     float Jet_JP;
     float Jet_JBP;
     float Jet_CSV;
-    float Jet_cMVA;
     float Jet_CSVIVF;
+    float Jet_cMVA;
+    float Jet_SoftMu;
+    float Jet_SoftEl;
 
     // CSV TaggingVariables
     // per jet
@@ -91,8 +93,10 @@ class TagVarBranches {
       tree->Branch((name+"Jet_JP").c_str()          ,&Jet_JP          ,(name+"Jet_JP/F").c_str()        );
       tree->Branch((name+"Jet_JBP").c_str()         ,&Jet_JBP         ,(name+"Jet_JBP/F").c_str()       );
       tree->Branch((name+"Jet_CSV").c_str()         ,&Jet_CSV         ,(name+"Jet_CSV/F").c_str()       );
-      tree->Branch((name+"Jet_cMVA").c_str()        ,&Jet_cMVA        ,(name+"Jet_cMVA/F").c_str()       );
       tree->Branch((name+"Jet_CSVIVF").c_str()      ,&Jet_CSVIVF      ,(name+"Jet_CSVIVF/F").c_str()   );
+      tree->Branch((name+"Jet_cMVA").c_str()        ,&Jet_cMVA        ,(name+"Jet_cMVA/F").c_str()       );
+      tree->Branch((name+"Jet_SoftMu").c_str()        ,&Jet_SoftMu        ,(name+"Jet_SoftMu/F").c_str()       );
+      tree->Branch((name+"Jet_SoftEl").c_str()        ,&Jet_SoftEl        ,(name+"Jet_SoftEl/F").c_str()       );
       //--------------------------------------
       // CSV TaggingVariables
       //--------------------------------------
@@ -163,8 +167,10 @@ class TagVarBranches {
       tree->SetBranchAddress((name+"Jet_JP").c_str()          ,&Jet_JP        );
       tree->SetBranchAddress((name+"Jet_JBP").c_str()         ,&Jet_JBP       );
       tree->SetBranchAddress((name+"Jet_CSV").c_str()         ,&Jet_CSV       );
-      tree->SetBranchAddress((name+"Jet_cMVA").c_str()        ,&Jet_cMVA     );
       tree->SetBranchAddress((name+"Jet_CSVIVF").c_str()      ,&Jet_CSVIVF   );
+      tree->SetBranchAddress((name+"Jet_cMVA").c_str()        ,&Jet_cMVA     );
+      tree->SetBranchAddress((name+"Jet_SoftMu").c_str()        ,&Jet_SoftMu     );
+      tree->SetBranchAddress((name+"Jet_SoftEl").c_str()        ,&Jet_SoftEl     );
       //--------------------------------------
       // CSV TaggingVariables
       //--------------------------------------
