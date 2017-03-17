@@ -1,6 +1,4 @@
 import FWCore.ParameterSet.Config as cms
-#from InputFiles_cff import inputFiles
-from ttbar_cff import inputFiles
 
 from FWCore.ParameterSet.VarParsing import VarParsing
 
